@@ -1,4 +1,4 @@
-# Discrete optimization [CUBA platform](https://www.cuba-platform.com/)
+# Discrete optimization with [CUBA platform](https://www.cuba-platform.com/)
 
 ## Introduction
 
@@ -6,7 +6,7 @@ Every organization faces planning problems: providing products or services with 
 
 This article discusses an approach of writing such applications with [CUBA platform](https://www.cuba-platform.com/) and [OptalPlanner library](http://www.optaplanner.org/). This approach allows regular developers who are not experts in [Operations Research area](https://en.wikipedia.org/wiki/Operations_research) to create such class of applications much faster than if they were creating these apps using regular J2EE and frontend approaches.
 
-As a supplemental material, this article and example demonstrate couple methods of data validation that [CUBA platform](https://www.cuba-platform.com/) offers.
+As a supplemental material, this article and example demonstrate couple methods of data validation, REST endpoints and logging that [CUBA platform](https://www.cuba-platform.com/) offers.
 
 ## Content
 1. [Model problem description](#model-problem-description)
@@ -24,10 +24,13 @@ _(all ships and containers images for the article were taken from Wikipedia)_
 ![APL Post-Panamax container ships Image ID: line0534, America's Coastlines. Collection Location: San Francisco.](resources/ship_and_holds.jpg)
 
 These giant vessels can carry thousands of ISO-containers that can be [different types](https://en.wikipedia.org/wiki/Intermodal_container) but most of the vessels can carry only 20 ft, 40 ft and 45 ft containers of standard end extra height (extra height are called High Cube).
-
 Container ships are divided into set of holds, each of them can hold 20 ft and 40 ft containers below deck level and 20, 40 and 45 ft containers above deck level.
 
-For our task we'll implement a small cargo management system that will keep records of containers that the vessel carries.
+In our example we will be creating a container ship cargo management system that will be able to accept available containers list from external systems using REST calls. (We can imagine that this is a port management software) and select an optimal set of containers that need to be loaded on the ship.
+
+Also, we will provide simple administrative UI to see the cargo loading scheme, define configuration of the ship (# of holds, types of holds, total tonnage, etc.).
+
+A problem of optimal cargo loading of container ships is [NP-complete](https://en.wikipedia.org/wiki/NP-completeness) and is known as a [berth allocation problem](https://en.wikipedia.org/wiki/Berth_allocation_problem).
 
 Database schema of our application looks like that:
 
