@@ -1,4 +1,4 @@
-# Input data validation in [CUBA platform](https://www.cuba-platform.com/)
+# Discrete optimization [CUBA platform](https://www.cuba-platform.com/)
 
 ## Introduction
 
